@@ -1,27 +1,12 @@
-( ( )  =>  { 
-    const  mobileMenu  =  документ . querySelector ( '.js-menu-container' ) ; 
-    const  openMenuBtn  =  документ . querySelector ( '.js-open-menu' ) ; 
-    const  closeMenuBtn  =  документ . querySelector ( '.js-close-menu' ) ; 
+const categories = document.querySelectorAll('#categories .item');
+console.log(`${categories.length}`);
 
-    const  toggleMenu  =  ( )  =>  { 
-      const  isMenuOpen  = 
-        openMenuBtn . getAttribute ( 'aria-expanded' )  ===  'true'  ||  false ; 
-      openMenuBtn . setAttribute ( 'aria-expanded' ,  ! isMenuOpen ) ; 
-      mobileMenu . classList . перемикати ( 'відкрито' ) ; 
+categories.forEach(category => {
+  const categoryTitle = category.querySelector('h2').textContent;
 
-      const  scrollLockMethod  =  ! isMenuOpen 
-        ? 'disableBodyScroll' 
-        : 'enableBodyScroll' ; 
-      bodyScrollLockscrollLockMethod ; 
-    } ; 
+  const categoryItems = category.querySelectorAll('ul li').length;
+});
 
-    openMenuBtn . addEventListener ( 'клацання' ,  toggleMenu ) ; 
-    closeMenuBtn . addEventListener ( 'клацання' ,  toggleMenu ) ; 
+console.log(`Category: ${categoryTitle}`);
+console.log(`${categoryItems} elements`);
 
-    вікно . matchMedia ( '(мін. ширина: 768 пікселів)' ) . addEventListener ( 'змінити' ,  e  =>  { 
-      if  ( ! e . matches )  return ; 
-      mobileMenu . classList . видалити ( 'is-open' ) ; 
-      openMenuBtn . setAttribute ( 'aria-expanded' ,  false ) ; 
-      bodyScrollLock . enableBodyScroll ( document.body ) ;​​ 
-    } ) ; 
-  } ) ( ) ;
